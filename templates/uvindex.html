@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Trust Weather</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet" />
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet" />
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+
+    <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Updated: Apr 20 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <style>
+    .card-title span {
+        color: hsl(218, 28%, 14%);
+    }
+</style>
+  <script>
+    function getFormattedTime(today) {
+    var hours = today.getHours();
+    var minutes = today.getMinutes();
+    var seconds = today.getSeconds();
+
+    // Convert hours to 12-hour format and determine AM/PM
+    var ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    return hours + ':' + minutes + ' ' + ampm;
+}
+
+function getFormattedTimeById() {
+    var today = new Date();
+    var formattedTime = getFormattedTime(today);
+    document.getElementById("time").innerHTML = formattedTime;
+}
+
+    function updateTime() {
+    var today = new Date();
+    var day = today.getDate();
+    var month = today.getMonth(); 
+    var year = today.getFullYear();
+    var hours=today.getHours();
+    var minutes=today.getMinutes();
+    // Create month names array for easy formatting
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+    var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    var formattedDate = dayNames[today.getDay()] + ", " + monthNames[month] + " " + day + ", " + year;
+
+    document.getElementById("datetime").innerHTML = formattedDate;
+    setTimeout(updateTime, 1000); // Call the function every second 
+    const body = document.body;  // Select the element to change background
+  
+  var hour = today.getHours();
+    }
+    </script>
+    
+    <style>
+      .card-title span {
+          color: hsl(218, 28%, 14%);
+      }
+  </style>
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <span class="d-none d-lg-block">TrustWeather</span>
+      </a>
+      <i class="bi bi-list toggle-sidebar-btn"></i>
+    </div><!-- End Logo -->     
+  </header><!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="index.html">
+          <i class="bi bi-grid"></i>
+          <span>Home</span>
+        </a>
+      </li><!-- End Home Nav -->
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="overview.html">
+          <i class="bi bi-bar-chart-line"></i><span>Overview</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          
+          <li>
+            <a href="overview.html">
+                <i class="bi bi-circle"></i><span> Weather Overview</span>
+            </a>
+          </li>
+            <li>
+                <a href="feelslike.html">
+                    <i class="bi bi-circle"></i><span>Feels Like</span>
+                </a>
+            </li>
+            <li>
+                <a href="humidity.html">
+                    <i class="bi bi-circle"></i><span>Humidity</span>
+                </a>
+            </li>
+            <li>
+                <a href="windspeed.html">
+                    <i class="bi bi-circle"></i><span>Wind Speed</span>
+                </a>
+            </li>
+            <li>
+                <a href="uvindex.html">
+                    <i class="bi bi-circle"></i><span>UV Index</span>
+                </a>
+            </li>
+        </ul>
+    </li><!-- End Overview Nav -->
+        
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="hourly.html">
+          <i class="bi bi-clock"></i>
+          <span>Hourly</span>
+        </a>
+      </li><!-- End Hourly Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="3days_forecast.html">
+          <i class="bi bi-calendar"></i>
+          <span>Daily</span>
+        </a>
+      </li><!-- End Daily Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="report.html">
+          <i class="bi bi-question-circle"></i>
+          <span>Report an issue</span>
+        </a>
+      </li><!-- End Report Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-contact.html">
+          <i class="bi bi-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+    <main id="main" class="main">
+      <section class="section dashboard">
+        <div class="row">
+          <!-- Left side columns -->
+          <div class="col-lg-12 align-content-center">
+              <!-- Feels Like Card -->
+                <div class="card info-card sales-card ">
+                  <div class="card-body">
+                    <h5 class="card-title text-center"><i class="bi bi-sun-fill"></i> UV Index</h5>
+                    <h5 class="card-title text-center" style="padding-top: 0px;"><span id = 'datetime'></span></h5>
+                    <hr>
+                    <div class="filter">
+                      <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+                      <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                        <li class="dropdown-header text-start">
+                          <h6>Conditions</h6>
+                        </li>
+    
+                        <li><a class="dropdown-item" href="feelslike.html">Feels Like</a></li>
+                        <li><a class="dropdown-item" href="humidity.html">Humidity</a></li>
+                        <li><a class="dropdown-item" href="uvindex.html">UV Index</a></li>
+                        <li><a class="dropdown-item" href="windspeed.html">Wind Speed</a></li>
+                      </ul>
+                    </div>
+                <div class="card-body d-flex justify-content-between" style="padding-bottom: 0px;">
+                  <div class="card-title">
+                  {% if uv_index < 3 %}
+                      <h6>{{ uv_index }} Low</h6>
+                  {% elif uv_index >= 3 and uv_index <= 5 %}
+                      <h6>{{ uv_index }} Moderate</h6>
+                  {% elif uv_index >= 6 and uv_index <= 7 %}
+                      <h6>{{ uv_index }} High</h6>
+                  {% elif uv_index >= 8 and uv_index <= 10 %}
+                      <h6>{{ uv_index }} Very High</h6>
+                  {% elif uv_index >= 11 %}
+                      <h6>{{ uv_index }} Extreme</h6>
+                  {% endif %}
+                   <h5 class="card-title" style="padding-top: 0px;"><span>OpenUV  UVI</span></h5>
+                  </div>
+                  <div>
+                  <!-- <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="ri ri-fahrenheit-fill"></i>
+                  </div> -->
+                </div>
+                  </div>
+                  <hr>
+              <!-- End Area Chart -->
+               <div class="col-lg-12">
+              <!-- Daily Summary-->
+              <div class="col-lg-12">
+                <h5 class="card-title">Now,<span id = 'time'></span></h5>
+                  <div class="card info-card sales-card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <span>Sun Protection recommended. Levels of Moderate or higher are reached from 8AM to 4PM.</span>
+                        </h5>
+                        {% if uv_index < 3 %}
+                            <h6>{{ uv_index }} Low</h6>
+                            <span>Minimal sun protection required for normal activity.</span>
+                        {% elif uv_index >= 3 and uv_index <= 5 %}
+                            <h6>{{ uv_index }} Moderate</h6>
+                            <span>Take precautions, such as covering up and using sunscreen.</span>
+                        {% elif uv_index >= 6 and uv_index <= 7 %}
+                            <h6>{{ uv_index }} High</h6>
+                            <span>Protection against sun damage is needed. Reduce time in the sun between 10AM and 4PM.</span>
+                        {% elif uv_index >= 8 and uv_index <= 10 %}
+                            <h6>{{ uv_index }} Very High</h6>
+                            <span>Extra protection is needed. Avoid the sun during midday hours.</span>
+                        {% elif uv_index >= 11 %}
+                            <h6>{{ uv_index }} Extreme</h6>
+                            <span>Take all precautions. Unprotected skin can burn in minutes.</span>
+                        {% endif %}
+                    </div>
+                </div>
+              </div>
+              <!-- End Daily Summary-->
+                
+              <div class="col-lg-12">
+                <h5 class="card-title">About UV Index</h5>
+                <div class="card info-card sales-card">
+                  <div class="card-body">
+                    <h5 class="card-title"><span>The World Health Organization's UV Index(UVI) measures ultraviolet radiation.The higher the UVi,the grater the potential for damage,and the faster harm can occur.The UVI can help you decide when to protect yourself from the sun and when to avoid being outside.The WHO recommends using shade, sunscreen, hats, and protective clothing at levels of 3(Moderate) or higher.</span></h5>
+                  </div>
+                </div>
+              </div>
+            </div>            
+         
+               </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Left side columns -->
+        </div>
+      </section>
+      <!-- End #main -->
+    </main>
+    <!-- ======= Footer ======= -->
+    <footer id="footer" class="footer">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Trust Weather</span></strong
+        >. All Rights Reserved
+      </div>
+    </footer>
+    <!-- End Footer -->
+
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script>updateTime(); getFormattedTimeById();</script>
+  </body>
+</html>

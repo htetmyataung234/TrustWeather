@@ -1,0 +1,23 @@
+[
+    {
+        "cid": 1,
+        "name": "Saung Me Me San",
+        "email": "kb560406@gmail.com",
+        "subject": "This is great!",
+        "message": "Thanks for writing this application!"
+    },
+    {
+        "cid": 2,
+        "name": "Htet Myat Aung",
+        "email": "htetmyataungzerozerofour@gmail.com",
+        "subject": "Thanks!!",
+        "message": "Test Message"
+    },
+    {
+        "cid": 3,
+        "name": "John",
+        "email": "thet2hlaing@gmail.com",
+        "subject": "test",
+        "message": "test"
+    }
+]

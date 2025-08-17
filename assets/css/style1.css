@@ -1,0 +1,99 @@
+body {
+  /* margin: 100px; */
+  padding: 20px 20px;
+
+  background-size: cover;
+  color: white;
+}
+.description {
+  color: white;
+  border: 0px;
+}
+
+.temperature {
+  margin: 0px;
+  height: 180px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.block_one {
+  display: flex;
+  justify-content:center; 
+  align-items: center;
+  /* background-color: blue;  */
+  width: 35%;
+}
+.block_three i {
+  font-size: 100px; /* Adjust size as needed */
+}
+
+.col_one {
+  /* display: inline; */
+  /* background-color: black; */
+  color: white;
+  width: 50%;
+}
+.col_one > h1 {
+  text-align: end;
+  color: white;
+  font-size: 120px;
+}
+.col_two {
+  display: inline; 
+  width: 50%;
+  /* background-color: violet;  */
+}
+.block_three {
+  /* background-color: cyan;  */
+  width: 30%;
+}
+
+/* .image {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 20px;
+  right: 0; 
+} */
+
+.block_four {
+  /* background-color: wheat;  */
+  width: 25%;
+}
+
+.cloud_image {
+  width: 200px;
+  margin-left: 80px;
+}
+
+.hourly_forecast {
+  margin-top: 0px;
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 340px;
+  border-radius: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hourly{
+  /* background-color: blue; */
+  width: 25%;    
+  color: black;
+  text-align: center;
+  justify-content: space-between;
+  font-size: 14px;
+  opacity: 100%;
+}
+
+.hourly i{
+  font-size: 75px;
+  color: white;
+}
+.hourly>img{
+  width: 140px;
+  height: 130px;
+  text-align: center;
+  justify-content: space-between;
+  font-size: 14px;  
+}

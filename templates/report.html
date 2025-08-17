@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Trust Weather</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link href="assets/vendor/quill/quill.snow.css" rel="stylesheet" />
+    <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet" />
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+
+    <!-- =======================================================
+  * Template Name: NiceAdmin
+  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+  * Updated: Apr 20 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <style>
+    .card-title span {
+        color: hsl(218, 28%, 14%);
+    }
+</style>
+  </head>
+
+  <body>
+    <!-- ======= Header ======= -->
+    <header id="header" class="header fixed-top d-flex align-items-center">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="index.html" class="logo d-flex align-items-center">
+          <span class="d-none d-lg-block">Trust Weather</span>
+        </a>
+        <i class="bi bi-list toggle-sidebar-btn"></i>
+      </div>
+      <!-- End Logo -->
+
+
+      <nav class="header-nav ms-auto">
+        <ul class="d-flex align-items-center">
+        </ul>
+      </nav>
+      <!-- End Icons Navigation -->
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="index.html">
+          <i class="bi bi-grid"></i>
+          <span>Home</span>
+        </a>
+      </li><!-- End Home Nav -->
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="overview.html">
+          <i class="bi bi-bar-chart-line"></i><span>Overview</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          
+          <li>
+            <a href="overview.html">
+                <i class="bi bi-circle"></i><span> Weather Overview</span>
+            </a>
+          </li>
+            <li>
+                <a href="feelslike.html">
+                    <i class="bi bi-circle"></i><span>Feels Like</span>
+                </a>
+            </li>
+            <li>
+                <a href="humidity.html">
+                    <i class="bi bi-circle"></i><span>Humidity</span>
+                </a>
+            </li>
+            <li>
+                <a href="windspeed.html">
+                    <i class="bi bi-circle"></i><span>Wind Speed</span>
+                </a>
+            </li>
+            <li>
+                <a href="uvindex.html">
+                    <i class="bi bi-circle"></i><span>UV Index</span>
+                </a>
+            </li>
+        </ul>
+    </li><!-- End Overview Nav -->
+        
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="hourly.html">
+          <i class="bi bi-clock"></i>
+          <span>Hourly</span>
+        </a>
+      </li><!-- End Hourly Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="3days_forecast.html">
+          <i class="bi bi-calendar"></i>
+          <span>Daily</span>
+        </a>
+      </li><!-- End Daily Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="report.html">
+          <i class="bi bi-question-circle"></i>
+          <span>Report an issue</span>
+        </a>
+      </li><!-- End Report Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pages-contact.html">
+          <i class="bi bi-envelope"></i>
+          <span>Contact</span>
+        </a>
+      </li><!-- End Contact Page Nav -->
+    </ul>
+
+  </aside><!-- End Sidebar-->
+
+    <main id="main" class="main">
+      <div class="pagetitle">
+        <h1>Report an issue</h1>
+        <h5 class="card-title">
+          <span
+            >Help improve the Weather app by describing the current conditions
+            at your location. <br />We collect your feedback and location and
+            offer better service.Thank you.
+          </span>
+        </h5>
+      </div>
+      <!-- End Page Title -->
+
+      <section class="section">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Overall Conditions</h5>
+
+                  <!-- Report Form -->
+                  <form action="{{ url_for('report') }}" method = "POST">
+                                        <div class="row mb-5">
+                      <div class="col-sm-10">
+                        <div class="form-check form-switch">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            id="flexSwitchCheckSunny"
+                            name="weather_conditions"
+                            value="Sunny"
+                          />
+                          <label
+                            class="form-check-label"
+                            for="flexSwitchCheckSunny"
+                            ><i class="bi bi-sun-fill"></i>&nbsp;&nbsp;&nbsp;Sunny</label
+                          >
+                        </div>
+                        <div class="form-check form-switch">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            id="flexSwitchCheckClouds"
+                            name="weather_conditions"
+                            value="Clouds"
+                          />
+                          <label
+                            class="form-check-label"
+                            for="flexSwitchCheckClouds"
+                            ><i class="bi bi-clouds"></i>&nbsp;&nbsp;&nbsp;Clouds</label
+                          >
+                        </div>
+                        <div class="form-check form-switch">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            id="flexSwitchCheckRain"
+                            name="weather_conditions"
+                            value="Rain"
+                          />
+                          <label
+                            class="form-check-label"
+                            for="flexSwitchCheckRain"
+                            ><i class="bi bi-cloud-rain"></i>&nbsp;&nbsp;&nbsp;Rain</label
+                          >
+                        </div>
+                        <div class="form-check form-switch">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            id="flexSwitchCheckWindy"
+                            name="weather_conditions"
+                            value="Windy"
+                          />
+                          <label
+                            class="form-check-label"
+                            for="flexSwitchCheckWindy"
+                            ><i class="bi bi-wind"></i>&nbsp;&nbsp;&nbsp;Windy</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                    <h5 class="card-title">Temperature</h5>
+                    <div class="col-sm-10">
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="temperature"
+                          id="gridRadios1"
+                          value="It's warmer"
+                        />
+                        <label class="form-check-label" for="gridRadios1">
+                          <i class="bi bi-thermometer-sun"></i>&nbsp;&nbsp;&nbsp;It's warmer
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="temperature"
+                          id="gridRadios2"
+                          value="Seems accurate"
+                        />
+                        <label class="form-check-label" for="gridRadios2">
+                          <i class="bi bi-thermometer-high"></i>&nbsp;&nbsp;&nbsp;Seems accurate
+                        </label>
+                      </div>
+                      <div class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="temperature"
+                          id="gridRadios3"
+                          value="It's colder"                        
+                        />
+                        <label class="form-check-label" for="gridRadios3">
+                          <i class="bi bi-thermometer-snow"></i>&nbsp;&nbsp;&nbsp;It's colder
+                        </label>
+                      </div>
+                    </div>
+                                        <h5 class="card-title">Wind</h5>
+                    <div class="row mb-5">
+                      <div class="col-sm-10">
+                        <div class="form-check form-switch">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            id="flexSwitchCheckWindier"
+                            name="wind_conditions"
+                            value="It's windier"
+                          />
+                          <label class="form-check-label" for="flexSwitchCheckWindier">
+                            <i class="bi bi-arrow-up-circle-fill"></i>&nbsp;&nbsp;&nbsp;It's windier
+                          </label>
+                        </div>
+                        <div class="form-check form-switch">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            id="flexSwitchCheckAccurate"
+                            name="wind_conditions"
+                            value="Seems accurate"
+                          />
+                          <label class="form-check-label" for="flexSwitchCheckAccurate">
+                            <i class="bi bi-circle-fill"></i>&nbsp;&nbsp;&nbsp;Seems accurate
+                          </label>
+                        </div>
+                        <div class="form-check form-switch">
+                          <input
+                            class="form-check-input"
+                            type="radio"
+                            id="flexSwitchCheckLessWindy"
+                            name="wind_conditions"
+                            value="It's less windy"
+                          />
+                          <label class="form-check-label" for="flexSwitchCheckLessWindy">
+                            <i class="bi bi-arrow-down-circle-fill"></i>&nbsp;&nbsp;&nbsp;It's less windy
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                                                    <h5 class="card-title">Other conditions</h5>
+                          <div class="col-sm-10">
+                            
+                            
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="other_conditions"
+                                id="gridRadios5"
+                                value="None"
+                              />
+                              <label class="form-check-label" for="gridRadios2">
+                                <i class="bi bi-slash-circle"></i>&nbsp;&nbsp;&nbsp;None</label>
+                            </div>
+
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="other_conditions"
+                                id="gridRadios1"
+                                value="Rainbow"
+                              />
+                              <label class="form-check-label" for="gridRadios1">
+                                <i class="bi bi-rainbow"></i>&nbsp;&nbsp;&nbsp;Rainbow
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="other_conditions"
+                                id="gridRadios2"
+                                value="Lightning"
+                              />
+                              <label class="form-check-label" for="gridRadios2">
+                                <i class="bi bi-cloud-lightning-fill"></i>&nbsp;&nbsp;&nbsp;Lightning
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="other_conditions"
+                                id="gridRadios3"
+                                value="Smoke"
+                              />
+                              <label class="form-check-label" for="gridRadios3">
+                                <i class="bi bi-cloud"></i>&nbsp;&nbsp;&nbsp;Smoke
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="other_conditions"
+                                id="gridRadios4"
+                                value="Fog"
+                              />
+                              <label class="form-check-label" for="gridRadios4">
+                                <i class="bi bi-cloud-fog-fill"></i>&nbsp;&nbsp;&nbsp;Fog
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input
+                                class="form-check-input"
+                                type="radio"
+                                name="other_conditions"
+                                id="gridRadios5"
+                                value="Haze"
+                              />
+                              <label class="form-check-label" for="gridRadios5">
+                                <i class="bi bi-sunset-fill"></i>&nbsp;&nbsp;&nbsp;Haze
+                              </label>
+                            </div>
+                          </div>
+                      <h5 class="card-title">Descriptions</h5>
+                      <div class="col-sm-10">
+                        <select class="form-select" aria-label="Default select example" name="description">
+                          <option value="Pleasant" selected>Pleasant</option>
+                          <option value="Unpleasant">Unpleasant</option>
+                          <option value="Hot">Hot</option>
+                          <option value="Muggy">Muggy</option>
+                          <option value="Chilly">Chilly</option>
+                          <option value="Dry">Dry</option>
+                          <option value="Windy">Windy</option>
+                          <option value="Calm">Calm</option>
+                        </select>
+                      </div>
+                      <br>
+                      <h5 class="card-title">City Name</h5>
+                      <div class="col-sm-10">
+                        <select class="form-select" aria-label="Default select example" name="city_name">
+                          <option value="Ahlone">Ahlone</option>
+                          <option value="Bahan">Bahan</option>
+                          <option value="Botataung">Botataung</option>
+                          <option value="Dagon">Dagon</option>
+                          <option value="Dagon Myothit (East)">Dagon Myothit (East)</option>
+                          <option value="Dagon Myothit (North)">Dagon Myothit (North)</option>
+                          <option value="Dagon Myothit (South)">Dagon Myothit (South)</option>
+                          <option value="Dagon Myothit (Seikkan)">Dagon Myothit (Seikkan)</option>
+                          <option value="Hlaing">Hlaing</option>
+                          <option value="Hlaingthaya">Hlaingthaya</option>
+                          <option value="Insein">Insein</option>
+                          <option value="Kamaryut">Kamaryut</option>
+                          <option value="Kyauktada">Kyauktada</option>
+                          <option value="Kyimyindaing">Kyimyindaing</option>
+                          <option value="Lanmadaw">Lanmadaw</option>
+                          <option value="Latha">Latha</option>
+                          <option value="Mayangone">Mayangone</option>
+                          <option value="Mingaladon">Mingaladon</option>
+                          <option value="Mingalartaungnyunt">Mingalartaungnyunt</option>
+                          <option value="North Okkalapa">North Okkalapa</option>
+                          <option value="Pabedan">Pabedan</option>
+                          <option value="Pazundaung">Pazundaung</option>
+                          <option value="Sanchaung">Sanchaung</option>
+                          <option value="Seikkan">Seikkan</option>
+                          <option value="Shwepyithar">Shwepyithar</option>
+                          <option value="South Okkalapa">South Okkalapa</option>
+                          <option value="Tamwe">Tamwe</option>
+                          <option value="Thaketa">Thaketa</option>
+                          <option value="Thingangyun">Thingangyun</option>
+                          <option value="Yankin">Yankin</option>
+                        </select>
+                      </div>
+                      <br>
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                      </div>
+                  </form>
+                  <!-- End Report Form -->
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+      </section>
+    </main>
+    <!-- End #main -->
+
+    
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+    <div class="copyright">
+      &copy; Copyright <strong><span>TrustWeather</span></strong>. All Rights Reserved
+    </div>
+  </footer>
+  <!-- End Footer -->
+
+    <a
+      href="#"
+      class="back-to-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

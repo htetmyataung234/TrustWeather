@@ -1,0 +1,17 @@
+[
+    {
+        "weather_conditions": "Clouds",
+        "temperature": "It's warmer",
+        "other_conditions": "Fog",
+        "description": "Chilly",
+        "rid": 1
+    },
+    {
+        "weather_conditions": "Clouds",
+        "temperature": "It's warmer",
+        "wind_conditions": "It's windier",
+        "other_conditions": "Lightning",
+        "description": "Pleasant",
+        "rid": 2
+    }
+]
